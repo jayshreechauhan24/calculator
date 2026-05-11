@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: white;
+            font-size:60px;
+            text-align: center;
+            margin: 20px;
+        }
+        #container{
+            width:500px;
+            height:600px;
+            background-color: rgb(31, 31, 31);
+            border-radius: 20px;
+        }
+        #grid{
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        #grid1{
+            height: 100px;
+            background-color: rgb(57, 57, 57);
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 1px 2px 10px black;
+            color: white;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+        }
+        #screen{
+            margin: 30px;
+            font-size:40px;
+            font-weight:500;
+
+        }
+        #grid2{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            margin: 20px;
+            justify-content: center;
+            align-content: center;
+        }
+        .grid-num{
+            height: 80px;
+            width: 80px;
+            background-color: rgb(48, 48, 48);
+            border-radius: 50%;
+            align-content: center;
+            text-align: center;
+            margin:5px;
+            box-shadow: 1px 2px 10px black;
+            color: white;
+            font-size: 30px;
+            font-weight:600;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+        .grid-num:hover{
+            transform: scale(1.2);
+            outline: 2px solid blue;
+            box-shadow: 1px 1px 10px blue;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="container">
+        <div id="grid">
+
+            <div id="grid1">
+                <p id="screen"></p>
+            </div>
+
+            <div id="grid2">
+                <div class="grid-num" id="div1">C</div>
+                <div class="grid-num" id="div2">( )</div>
+                <div class="grid-num" id="div3">%</div>
+                <div class="grid-num" id="div4">/</div>
+                <div class="grid-num" id="div5">7</div>
+                <div class="grid-num" id="div6">8</div>
+                <div class="grid-num" id="div7">9</div>
+                <div class="grid-num" id="div8">*</div>
+                <div class="grid-num" id="div9">4</div>
+                <div class="grid-num" id="div10">5</div>
+                <div class="grid-num" id="div11">6</div>
+                <div class="grid-num" id="div12">-</div>
+                <div class="grid-num" id="div13">1</div>
+                <div class="grid-num" id="div14">2</div>
+                <div class="grid-num" id="div15">3</div>
+                <div class="grid-num" id="div16">+</div>
+                <div class="grid-num" id="div17">+/-</div>
+                <div class="grid-num" id="div18">0</div>
+                <div class="grid-num" id="div19">.</div>
+                <div class="grid-num" id="div20">=</div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+<script>
+    const screen=document.getElementById("screen");
+    const numc=document.getElementById("div1")
+    const numbracket=document.getElementById("div2")
+    const numpercentage=document.getElementById("div3")
+    const numdevide=document.getElementById("div4")
+    const num7=document.getElementById("div5")
+    const num8=document.getElementById("div6")
+    const num9=document.getElementById("div7")
+    const nummultiply=document.getElementById("div8")
+    const num4=document.getElementById("div9")
+    const num5=document.getElementById("div10")
+    const num6=document.getElementById("div11")
+    const numminus=document.getElementById("div12")
+    const num1=document.getElementById("div13")
+    const num2=document.getElementById("div14")
+    const num3=document.getElementById("div15")
+    const numplus=document.getElementById("div16")
+    const numplusorminus=document.getElementById("div17")
+    const num0=document.getElementById("div18")
+    const numdot=document.getElementById("div19")
+    const numequal=document.getElementById("div20")
+
+    num0.addEventListener('click',()=>{
+        screen.textContent+=0;
+    });
+    num1.addEventListener('click',()=>{
+        screen.textContent+=1;
+    });
+    num2.addEventListener('click',()=>{
+        screen.textContent+=2;
+    });
+    num3.addEventListener('click',()=>{
+        screen.textContent+=3;
+    });
+    num4.addEventListener('click',()=>{
+        screen.textContent+=4;
+    });
+    num5.addEventListener('click',()=>{
+        screen.textContent+=5;
+    });
+    num6.addEventListener('click',()=>{
+        screen.textContent+=6;
+    });
+    num7.addEventListener('click',()=>{
+        screen.textContent+=7;
+    });
+    num8.addEventListener('click',()=>{
+        screen.textContent+=8;
+    });
+    num9.addEventListener('click',()=>{
+        screen.textContent+=9;
+    });
+    numminus.addEventListener('click',()=>{
+        screen.textContent+="-";
+    });
+    numplus.addEventListener('click',()=>{
+        screen.textContent+="+";
+    });
+    numdevide.addEventListener('click',()=>{
+        screen.textContent +="/";
+    });
+    nummultiply.addEventListener('click',()=>{
+        screen.textContent +="*";
+    });
+    numdot.addEventListener('click',()=>{
+        screen.textContent+=".";
+    });
+    numc.addEventListener('click',()=>{
+        screen.textContent="";
+    });
+    let bracketOpen = true;
+
+    numbracket.addEventListener('click', () => {
+
+    if(bracketOpen){
+        screen.textContent += "(";
+        bracketOpen = false;
+    }
+    else{
+        screen.textContent += ")";
+        bracketOpen = true;
+    }
+
+    });
+    numpercentage.addEventListener('click', () => {
+
+    screen.textContent += "/100";
+
+
+    });
+    numequal.addEventListener('click', () => {
+    let result = eval(screen.textContent);
+    screen.textContent = parseFloat(result.toFixed(2));
+});
+
+   
+</script>
+</html>

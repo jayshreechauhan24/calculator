@@ -74,9 +74,18 @@
         }
         .grid-num:hover{
             transform: scale(1.2);
-            outline: 2px solid blue;
-            box-shadow: 1px 1px 10px blue;
-
+            box-shadow: 1px 1px 10px blue; 
+            border:1px solid blue;
+        }
+        @media (max-width:768px){
+            #container{
+                width:350px;
+                height:450px;
+            }
+             .grid-num{
+                height:50px;
+                width: 50px;
+            }
         }
 
     </style>
